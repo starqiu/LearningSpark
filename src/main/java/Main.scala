@@ -6,8 +6,13 @@ import org.apache.spark.SparkContext
 object Main {
 
   def main(args: Array[String]): Unit ={
-    val sc = new SparkContext("spark://localhost:7077","Hello World")
-    val file = sc.textFile("hdfs:///usr/hello")
+    //此处master使用spark://localhost:7077会报错，目前运行单机模式正常运行
+    val sc = new SparkContext("local","Hello World")
+    val file = sc.textFile("hdfs://localhost:9000/usr/hello")
+    val lines = file.filter(s => s.contains("Hello World")).collect();
+    lines.foreach(println)
   }
+
+
 }
 
