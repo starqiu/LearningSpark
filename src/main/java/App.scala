@@ -21,12 +21,12 @@ object App {
       conf.setMaster("local")
     }
     val sc = new SparkContext(conf)
-//    if (AppArgs.coreSitePath != null){
-//      sc.hadoopConfiguration.addResource(AppArgs.coreSitePath)
-//    }
-//    if (AppArgs.hdfsSitePath != null){
-//      sc.hadoopConfiguration.addResource(AppArgs.hdfsSitePath)
-//    }
+    if (AppArgs.coreSitePath != null){
+      sc.hadoopConfiguration.addResource(AppArgs.coreSitePath)
+    }
+    if (AppArgs.hdfsSitePath != null){
+      sc.hadoopConfiguration.addResource(AppArgs.hdfsSitePath)
+    }
 //    val sc = new SparkContext("local")
 //    val file = sc.textFile("hdfs://localhost:9000/usr/hello")
     testHelloWorld(sc)
