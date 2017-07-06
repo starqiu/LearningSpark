@@ -10,7 +10,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <scala.version>2.11.7</scala.version>
+        <scala.version>2.11.8</scala.version>
+        <scala.base.version>2.11</scala.base.version>
+        <hadoop.version>2.6.0</hadoop.version>
+        <spark.version>2.1.0</spark.version>
+        <druid.version>1.0.28</druid.version>
+        <ojdbc.version>12.1.0.2.0</ojdbc.version>
     </properties>
 
     <dependencies>
@@ -18,13 +23,13 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-compiler</artifactId>
             <version>${scala.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -35,22 +40,43 @@
         <!--spark-core -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
-            <version>1.5.2</version>
-            <scope>provided</scope>
+            <artifactId>spark-core_${scala.base.version}</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.base.version}</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
         </dependency>
         <!-- spark-hive -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_2.10</artifactId>
-            <version>1.5.2</version>
-            <scope>provided</scope>
+            <artifactId>spark-hive_${scala.base.version}</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
         </dependency>
         <!-- spark读写csv文件-->
         <dependency>
             <groupId>com.databricks</groupId>
-            <artifactId>spark-csv_2.10</artifactId>
-            <version>1.2.0</version>
+            <artifactId>spark-csv_${scala.base.version}</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+            <version>1.48</version>
         </dependency>
     </dependencies>
 
