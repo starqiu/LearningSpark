@@ -29,7 +29,7 @@ object App {
 //    }
 //    val sc = new SparkContext("local")
 //    val file = sc.textFile("hdfs://localhost:9000/usr/hello")
-//    testHelloWorld(sc)
+    testHelloWorld(sc)
 //    val file = sc.textFile("/user/hello").cache()
 //    file.foreach(println)
 //    val blankLines = sc.longAccumulator
