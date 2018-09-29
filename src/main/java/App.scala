@@ -1,5 +1,6 @@
 import com.beust.jcommander.{JCommander, Parameter}
 import org.apache.commons.lang3.StringUtils
+import org.apache.hadoop.conf.Configuration
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -27,6 +28,16 @@ object App {
     if (AppArgs.hdfsSitePath != null){
       sc.hadoopConfiguration.addResource(AppArgs.hdfsSitePath)
     }
+    println(sc.hadoopConfiguration.toString)
+
+
+    var hadoopConfiguration = new Configuration()
+    hadoopConfiguration.addResource(AppArgs.hdfsSitePath)
+    hadoopConfiguration.addResource(AppArgs.coreSitePath)
+
+
+    println(hadoopConfiguration.toString)
+
 //    val sc = new SparkContext("local")
 //    val file = sc.textFile("hdfs://localhost:9000/usr/hello")
     testHelloWorld(sc)
